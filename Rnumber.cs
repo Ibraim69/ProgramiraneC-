@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Numbers
 {
@@ -23,13 +21,9 @@ namespace Numbers
             }
         }
         public int Znamenatel
-        {
-            set
-            {
-                if (value == 0)
+        { set { if (value == 0)
                     throw new ArgumentException("znamenatelq ne moje da bude 0");
-                znamenatel = value;
-            }
+                znamenatel = value; }
 
 
             get
@@ -38,8 +32,7 @@ namespace Numbers
             }
         }
         Rnumber(int chislitel, int znamenatel)
-        {
-            this.Chislitel = chislitel;
+        { this.Chislitel = chislitel;
             this.Znamenatel = znamenatel;
         }
 
@@ -49,27 +42,25 @@ namespace Numbers
         }
         public override string ToString()
         {
-            return Chislitel+"/"+Znamenatel;
+            return Chislitel;
         }
-        public Rnumber Add(Rnumber rn)
+        public Rnumber Add(Rnumber rn);
         {
         int chi;
         int z;
         chi = this.chislitel* rn.znamenatel + rn.chislitel* this.znamenatel;
-            z = this.znamenatel * rn.znamenatel;
+        z= this.znamenatel* rn.znamenatel
             return new Rnumber(chi, z);
     }
     public Rnumber substract(Rnumber rn)
-    {
-        int ch;
+    { int ch;
         int z;
         ch = this.chislitel * rn.Znamenatel - rn.Chislitel * this.znamenatel;
         z = this.znamenatel * rn.Znamenatel;
-            return new Rnumber(ch, z);
+        return new Rnumber(ch, z)
             }
     public Rnumber Multiply(Rnumber rn)
-    {
-        int ch;
+    { int ch;
         int z;
         ch = this.chislitel * rn.Chislitel;
         z = this.znamenatel * rn.znamenatel;
@@ -83,10 +74,11 @@ namespace Numbers
         z = this.znamenatel * rn.Chislitel;
         return new Rnumber(ch, z);
     }
-
-
-
-
-
 }
-}
+
+
+
+    
+        
+    
+
