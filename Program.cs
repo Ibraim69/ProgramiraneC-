@@ -1,22 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Tipove_danni_2
+namespace CarDriving
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Vuvedi bukva");
-            char bukva = 'c';
-            byte chislo = 100;
-            short chislo2 = 20000;
-            int chislo3 = 300000;
-            string duma = "Programirane";
-            Console.WriteLine("bukvata e = " +  bukva);
-            Console.WriteLine("chislo1  e = " + chislo);
-            Console.WriteLine("chislpo2 e = " + chislo2);
-            Console.WriteLine("chislo2 e = " + chislo3);
-            Console.WriteLine("dumata  e = "  + duma);
+            Car Car = new Car("rr6969ab", 20, 8, 8069);
+            Console.WriteLine("Input need km: ");
+            double needkm = Double.Parse(Console.ReadLine());
+            if (Car.CanDrive(needkm))
+            {
+                Car.Drive(needkm);
+                Console.WriteLine("You drove {0}km",needkm);
+            }
+            else
+            {
+                Console.WriteLine("You can not drive {0}km", needkm);
+            }
         }
     }
 }
