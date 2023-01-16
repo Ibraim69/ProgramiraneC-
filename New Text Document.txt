@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+
+namespace Zadacha2
+{
+    class Program
+    {
+        static void Main(string[] args)
+
+        {
+            var specialnosti = new SortedDictionary<string, int>();
+            specialnosti["Prilojno programirane"] = 26;
+            string komanda = "";
+            do
+            {
+                Console.WriteLine("Enter command specialnost and number");
+                string[] masiv = Console.ReadLine().Split();
+                komanda = masiv[0];
+                switch (komanda)
+                {
+                         case "Add":
+                            string komanda1 = masiv[1];
+                            int komanda2 = int.Parse(masiv[2]);
+                            foreach (var i in specialnosti)
+                            {
+                                if (i.Key == komanda1)
+                                {                                
+                                  specialnosti.Add(komanda1, komanda2);  
+                                  specialnosti.Remove(komanda1);
+                                  Console.WriteLine(string.Join(", ", specialnosti));
+                                  break;
+                                }
+                                else
+                                {
+                                    specialnosti.Add(komanda1, komanda2);
+                                    break;
+                                }
+                            }
+                            break;
+                       
+                }
+            } while (komanda != "END");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+Въведената  информация трябва да се допълни  за Специалности и брой ученици от съответната специалност  с помощта на команди:
+- Add
+Add добавя{ специалност}  {брой ученици}
+/ Коригирайте даденият Ви  кода,  така че при повторно добавяне на специалност със същото име кода да не  дава грешка/.
+
+-Show
+Show {име на специалност} 
+При съвпадение на специалността да се извежда 
+{Брой ученици}  ученици от специалност :{ Име на специалността } 
+При ненамерено съвпадение да се изведе :
+ {име на специалността} не съществува
+
+-CountAll
+Извежда цялата информация във вида:
+ { Име на специалността } , {Брой ученици}
+
+- END
+Въвеждането на данни прекъсва,  когато се въведе команда END и на екрана се изписва текста:  Благодарим Ви! 
+
