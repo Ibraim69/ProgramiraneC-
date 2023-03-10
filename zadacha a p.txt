@@ -1,0 +1,52 @@
+Създайте проект с име DunavState и извършете следните действия: 
+1.Създаване на обект на класа List 
+2.Отпечатайте броя на елементите и капацитета на списъка; 
+3.Добавете 6 елемента в списъка/добавете градовете Видин, Свищов, Никопол,Лом, Русе, Силистра, /; 
+4.Отпечатайте съдържанието на списъка; 
+5.След добавяне на елементите отпечатайте техния брой и капацитет; 
+6.Премахнете елемент, въведен от потребителя, като изпишете текста „Remove from list element ….“ 
+7.Отпечатайте съдържанието на списъка след премахнатия елемент; 
+8.Отпечатайте броя на елементите и капацитета на списъка. 
+9.Заменете стойността на един от елементите с нова стойност, която потребителя въвежда. 
+10.Отпечатайте съдържанието на списъка със заменения елемент.
+11.Извлечете елемент на списъка по индекс, въведен от потребителя. 
+
+
+
+
+DO DEVETA TOCHKA
+List<string> gradove = new List<string>();
+            Console.WriteLine("broq na elementite" + gradove.Count);
+            Console.WriteLine("kapaciteta na spisuka e " + gradove.Capacity);
+            gradove.Add("Vidin");
+            gradove.Add ("Svishtov");
+            gradove.Add ("Nikopol");
+            gradove.Add("Lom");
+            gradove.Add("Ruse");
+            gradove.Add("Silistra");
+            for (int i=0; i < gradove.Count; i++) 
+            {
+                Console.WriteLine(gradove[i]);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Broq na gradovete e" + gradove.Count);
+            Console.WriteLine("Kapaciteta ma spisuka otnowo e" + gradove.Capacity);
+            Console.WriteLine("Vuvedi grad koito shte premahnesh");
+            string grad = Console.ReadLine();
+            Console.WriteLine(" Remove from list element: " + grad);
+            gradove.Remove(grad);
+            for (int i=0; i < gradove.Count; i++)
+            {
+                Console.WriteLine(gradove[i]);
+            }
+            Console.WriteLine("Noviq kapacitet na spisuka e" + gradove.Capacity);
+            Console.WriteLine("vuvedi nov grad");
+            string novgrad = Console.ReadLine();
+            Console.WriteLine("Koi nomer shte iztriete");
+            int element = int.Parse(Console.ReadLine());
+            gradove.RemoveAt(element - 1);
+            gradove.Insert(element - 1, novgrad);
+            Console.WriteLine();
+        }
+    }
+}
