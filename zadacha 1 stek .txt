@@ -1,0 +1,26 @@
+Stack<int> s = new Stack<int>();
+            // Да се напише програма, която вкарва в стек елементите: 2, 6, 23, 7, 45. 
+            s.Push(2);
+            s.Push(6);
+            s.Push(23);
+            s.Push(7);
+            s.Push(45);
+            Console.WriteLine();
+            //- колко е броя на елементите постъпили в стека.
+
+            Console.WriteLine("broq na elementite v steka e" + s.Count);
+            Console.WriteLine();
+            //кой е последния постъпил елемент в стека и да го извадим от него.
+            Console.WriteLine(" posledniq element koito e stupil v steka e" + s.Pop());
+            Console.WriteLine();
+            //колко са елементите в стека сега
+            Console.WriteLine(" elementite v steka sega sa " + s.Count);
+            Console.WriteLine();
+            //- кой е елемента, който можем да извадим от стека, без да го премахвам
+            Console.WriteLine("elementa koito mojem da izvadim bez da go premahnem e"+ s.Peek());
+            Console.WriteLine();
+            //колко е броя на елементите, които са останали в стека.
+            Console.WriteLine("broq na elementite v steka sa " + s.Count);
+        }
+    }
+}
