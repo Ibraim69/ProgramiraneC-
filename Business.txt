@@ -1,0 +1,145 @@
+//PrinterModel
+        public List<PrinterModel> GetAllModel()
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                return printersDBContext.PrinterModels.ToList();
+            }
+        }
+        public PrinterModel GetModel(int id)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                return printersDBContext.PrinterModels.Find(id);
+            }
+        }
+        public void AddModel(PrinterModel printerModel)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                printersDBContext.PrinterModels.Add(printerModel);
+                printersDBContext.SaveChanges();
+            }
+        }
+        public void UpdateModel(PrinterModel product)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                var item = printersDBContext.PrinterModels.Find(product.Id);
+                if (item != null)
+                {
+                    printersDBContext.Entry(item).CurrentValues.SetValues(product);
+                    printersDBContext.SaveChanges();
+                }
+            }
+        }
+        public void DeletePrinterModel(int id)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                var product = printersDBContext.PrinterModels.Find(id);
+                if (product != null)
+                {
+                    printersDBContext.PrinterModels.Remove(product);
+                    printersDBContext.SaveChanges();
+                }
+
+            }
+        }
+        //Cartridge
+        public List<Cartridge> GetAllCartridgeModel()
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                return printersDBContext.Cartridges.ToList();
+            }
+        }
+        public Cartridge GetCartridge(int id)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                return printersDBContext.Cartridges.Find(id);
+            }
+        }
+        public void AddCartridge(Cartridge cartridge)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                printersDBContext.Cartridges.Add(cartridge);
+                printersDBContext.SaveChanges();
+            }
+        }
+        public void UpdateCartridge(Cartridge product)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                var item = printersDBContext.Printers.Find(product.Id);
+                if (item != null)
+                {
+                    printersDBContext.Entry(item).CurrentValues.SetValues(product);
+                    printersDBContext.SaveChanges();
+                }
+            }
+        }
+        public void DeleteCartridge(int id)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                var product = printersDBContext.Printers.Find(id);
+                if (product != null)
+                {
+                    printersDBContext.Printers.Remove(product);
+                    printersDBContext.SaveChanges();
+                }
+            }
+        }
+        //CartridgeModel
+        public List<CartridgeModel> GetAllCartridgeModel()
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                return printersDBContext.CartridgeModels.ToList();
+            }
+        }
+        public Cartridge GetCartridgeModel(int id)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                return printersDBContext.CartridgeModels.Find(id);
+            }
+        }
+        public void AddCartridgeModel(CartridgeModel cartridgeModel)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                printersDBContext.CartridgeModels.Add(cartridgeModel);
+                printersDBContext.SaveChanges();
+            }
+        }
+        public void UpdateCartridgeModel(CartridgeModel product)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                var item = printersDBContext.CartridgeModels.Find(product.Id);
+                if (item != null)
+                {
+                    printersDBContext.Entry(item).CurrentValues.SetValues(product);
+                    printersDBContext.SaveChanges();
+                }
+            }
+        }
+        public void DeleteCartridgeModel(int id)
+        {
+            using (printersDBContext = new PrintersDBContext())
+            {
+                var product = printersDBContext.Printers.Find(id);
+                if (product != null)
+                {
+                    printersDBContext.CartridgeModels.Remove(product);
+                    printersDBContext.SaveChanges();
+                }
+            }
+        }
+    }
+}
+ 

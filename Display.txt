@@ -1,0 +1,318 @@
+//PrinterModel
+        private void ShowMenuM()
+        {
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string('-', 18)) + "MENU" + new string(' ', 18));
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine("1. List all entries");
+            Console.WriteLine("2. Add new entry");
+            Console.WriteLine("3. Update entry");
+            Console.WriteLine("4. Fetch entry by ID");
+            Console.WriteLine("5. Delete entry by ID");
+            Console.WriteLine("6. Exit");
+        }
+
+        private void Input1()
+        {
+            var operation = -1;
+            do
+            {
+                ShowMenu();
+                operation = int.Parse(Console.ReadLine());
+                switch (operation)
+                {
+                    case 1:
+                        ListAllModel();
+                        break;
+                    case 2:
+                        AddModel();
+                        break;
+                    case 3:
+                        UpdateModel();
+                        break;
+                    case 4:
+                        FetchModel();
+                        break;
+                    case 5:
+                        DeletePrinterModel();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            while (operation != closeOperationId);
+        }
+
+
+
+
+
+        private void AddModel()
+        {
+            PrinterModel printermodel = new PrinterModel();
+            Console.WriteLine(("Enter ModelName:"));
+            printermodel.ModelName = (Console.ReadLine());
+            Console.WriteLine(("Enter Type:"));
+            printermodel.Type = (Console.ReadLine());
+            Console.WriteLine(("Enter Resolution:"));
+            printermodel.Resolution = int.Parse(Console.ReadLine());
+            Console.WriteLine(("Enter PrintSpeed"));
+            printermodel.PrintSpeed = float.Parse(Console.ReadLine());
+            printersDBBusiness.AddModel(printermodel);
+        }
+        private void ListAllModel()
+        {
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string('-', 16) + "PRINTERMODEL" + new string(' ', 16));
+            Console.WriteLine(new string('-', 40));
+            var printermodel1 = printersDBBusiness.GetAllModel();
+            foreach (var item in printermodel1)
+            {
+                Console.WriteLine("{0} {1} {2} {3} {4}", item.Id, item.ModelName, item.Type, item.Resolution, item.PrintSpeed);
+            }
+        }
+        private void UpdateModel()
+        {
+            Console.WriteLine("Enter ID to update: ");
+            int id = int.Parse(Console.ReadLine());
+            PrinterModel printermodel1 = printersDBBusiness.GetModel(id);
+            if (printersDBBusiness != null)
+            {
+                Console.WriteLine(("Enter ModelName:"));
+                printermodel1.ModelName = (Console.ReadLine());
+                Console.WriteLine(("Enter Type:"));
+                printermodel1.Type = (Console.ReadLine());
+                Console.WriteLine(("Enter Resolution:"));
+                printermodel1.Resolution = int.Parse(Console.ReadLine());
+                Console.WriteLine(("Enter PrintSpeed"));
+                printermodel1.PrintSpeed = float.Parse(Console.ReadLine());
+                printersDBBusiness.UpdateModel(printermodel1);
+            }
+        }
+        private void FetchModel()
+        {
+            Console.WriteLine("Enter ID to fetch: ");
+            int id = int.Parse(Console.ReadLine());
+            PrinterModel printermodel1 = printersDBBusiness.GetModel(id);
+            if (printermodel1 != null)
+            {
+                Console.WriteLine(new string('-', 40));
+                Console.WriteLine("ID: " + pri.Id);
+                Console.WriteLine("ModelName: " + printermodel1.ModelName);
+                Console.WriteLine("TypeOfTheModel: " + printermodel1.Type);
+                Console.WriteLine("ResolutionOfTheModel: " + printermodel1.Resolution);
+                Console.WriteLine("PrintSpeed:" + printermodel1.PrintSpeed);
+                Console.WriteLine(new string('-', 40));
+            }
+        }
+        private void DeletePrinterModel()
+        {
+            Console.WriteLine("Enter ID to delete: ");
+            int id = int.Parse(Console.ReadLine());
+            printersDBBusiness.DeletePrinterModel(id);
+            Console.WriteLine("Done.");
+        }
+
+
+        //Cartridge
+        private void ShowMenuC()
+        {
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string('-', 18) + "MENU" + new string(' ', 18));
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine("1. List all entries");
+            Console.WriteLine("2. Add new entry");
+            Console.WriteLine("3. Update entry");
+            Console.WriteLine("4. Fetch entry by ID");
+            Console.WriteLine("5. Delete entry by ID");
+            Console.WriteLine("6. Exit");
+        }
+
+        private void Input2()
+        {
+            var operation = -1;
+            do
+            {
+                ShowMenu();
+                operation = int.Parse(Console.ReadLine());
+                switch (operation)
+                {
+                    case 1:
+                        ListAllCartridge();
+                        break;
+                    case 2:
+                        AddCartridge();
+                        break;
+                    case 3:
+                        UpdateCartridge();
+                        break;
+                    case 4:
+                        FetchCartridge();
+                        break;
+                    case 5:
+                        DeleteCartridge();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            while (operation != closeOperationId);
+        }
+        private void AddCartridge()
+        {
+            Cartridge cartridge = new Cartridge();
+            Console.WriteLine(("Enter Installed Date:"));
+            cartridge.InstalledDate = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine(("Enter RemainingPages:"));
+            cartridge.RemainingPages = (Console.ReadLine());
+            printersDBBusiness.AddCartridge(cartridge);
+        }
+        private void ListAllCartridge()
+        {
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string('-', 16)) + "CARTRIDGE" + new string(' ', 16));
+            Console.WriteLine(new string('-', 40));
+            var cartridge1 = printersDBBusiness.GetAllCartridge();
+            foreach (var item in cartridge1)
+            {
+                Console.WriteLine("{0} {1} }", item.Id, item.RemainingPages);
+            }
+        }
+        private void UpdateCartridge()
+        {
+            Console.WriteLine("Enter ID to update: ");
+            int id = int.Parse(Console.ReadLine());
+            Cartridge cartridge 1 = printersDBBusiness.GetCartridge(id);
+            if (printersDBBusiness != null)
+            {
+                Cartridge cartridge1 = new Cartridge();
+                Console.WriteLine(("Enter Installed Date:"));
+                cartridge1.InstalledDate = DateTime.Parse(Console.ReadLine());
+                Console.WriteLine(("Enter RemainingPages:"));
+                cartridge1.RemainingPages = (Console.ReadLine());
+                printersDBBusiness.UpdateCartridge(cartridge1);
+            }
+        }
+        private void FetchCartridge()
+        {
+            Console.WriteLine("Enter ID to fetch: ");
+            int id = int.Parse(Console.ReadLine());
+            Cartridge cartridge1 = printersDBBusiness.GetCartridge(id);
+            if (cartridge1 != null)
+            {
+                Console.WriteLine(new string('-', 40));
+                Console.WriteLine("ID: " + cartridge1.Id);
+                Console.WriteLine("InstalledDate: " + cartridge1.InstalledDate);
+                Console.WriteLine("RemainingPages: " + cartridge1.RemainingPages);
+                Console.WriteLine(new string('-', 40));
+            }
+        }
+        private void DeleteCartridge()
+        {
+            Console.WriteLine("Enter ID to delete: ");
+            int id = int.Parse(Console.ReadLine());
+            printersDBBusiness.DeleteCartridge(id);
+            Console.WriteLine("Done.");
+        }
+        //CartridgeModel
+        private void ShowMenuC()
+        {
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string('-', 18)) + "MENU" + new string(' ', 18));
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine("1. List all entries");
+            Console.WriteLine("2. Add new entry");
+            Console.WriteLine("3. Update entry");
+            Console.WriteLine("4. Fetch entry by ID");
+            Console.WriteLine("5. Delete entry by ID");
+            Console.WriteLine("6. Exit");
+        }
+
+        private void Input3()
+        {
+            var operation = -1;
+            do
+            {
+                ShowMenu();
+                operation = int.Parse(Console.ReadLine());
+                switch (operation)
+                {
+                    case 1:
+                        ListAllCartridgeModel();
+                        break;
+                    case 2:
+                        AddCartridgeModel();
+                        break;
+                    case 3:
+                        UpdateCartridgeModel();
+                        break;
+                    case 4:
+                        FetchCartridgeModel();
+                        break;
+                    case 5:
+                        DeleteCartridgeModel();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            while (operation != closeOperationId);
+        }
+        private void AddCartridgeModel()
+        {
+            Cartridge cartridge = new Cartridge();
+            Console.WriteLine(("Enter Installed Date:"));
+            cartridge.InstalledDate = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine(("Enter RemainingPages:"));
+            cartridge.RemainingPages = (Console.ReadLine());
+            printersDBBusiness.AddCartridge(cartridge);
+        }
+        private void ListAllCartridgeModel()
+        {
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string('-', 16)) + "CARTRIDGE" + new string(' ', 16));
+            Console.WriteLine(new string('-', 40));
+            var cartridge1 = printersDBBusiness.GetAllCartridge();
+            foreach (var item in cartridge1)
+            {
+                Console.WriteLine("{0} {1} }", item.Id, item.RemainingPages);
+            }
+        }
+        private void UpdateCartridgeModel()
+        {
+            Console.WriteLine("Enter ID to update: ");
+            int id = int.Parse(Console.ReadLine());
+            Cartridge cartridge 1 = printersDBBusiness.GetCartridge(id);
+            if (printersDBBusiness != null)
+            {
+                Cartridge cartridge1 = new Cartridge();
+                Console.WriteLine(("Enter Installed Date:"));
+                cartridge1.InstalledDate = DateTime.Parse(Console.ReadLine());
+                Console.WriteLine(("Enter RemainingPages:"));
+                cartridge1.RemainingPages = (Console.ReadLine());
+                printersDBBusiness.UpdateCartridge(cartridge1);
+            }
+        }
+        private void FetchCartridgeModel()
+        {
+            Console.WriteLine("Enter ID to fetch: ");
+            int id = int.Parse(Console.ReadLine());
+            Cartridge cartridge1 = printersDBBusiness.GetCartridge(id);
+            if (cartridge1 != null)
+            {
+                Console.WriteLine(new string('-', 40));
+                Console.WriteLine("ID: " + cartridge1.Id);
+                Console.WriteLine("InstalledDate: " + cartridge1.InstalledDate);
+                Console.WriteLine("RemainingPages: " + cartridge1.RemainingPages);
+                Console.WriteLine(new string('-', 40));
+            }
+        }
+        private void DeleteCartridgeModel()
+        {
+            Console.WriteLine("Enter ID to delete: ");
+            int id = int.Parse(Console.ReadLine());
+            printersDBBusiness.DeleteCartridgeModels(id);
+            Console.WriteLine("Done.");
+        }
+    }
+}
