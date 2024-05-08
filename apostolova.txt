@@ -1,0 +1,99 @@
+Напиши програма която изчислява факториел и сумата - s = 4 + 5/5 + 5/6 + 5/5
+- с 2 дъщерни нишки като кординирате изпълнението 
+- с дъщерна и главна
+- с фонова и главна n! = 1.2.3.n
+static void factoriel()
+{
+CWL("vuvedete n");
+int n = int.Parse(Console.ReadLine());
+int f = 1;
+for (int k=0; k<=n; k++)
+{
+f= f*k;
+CWL(":{0}",f);
+Thread.Sleep(1000);
+}
+CWL("Dushternata nishka prikluchi n!="+f);
+}
+static void suma()
+{
+CWL("Vuvedete n");
+int n = int.Parse(CRL());
+double s = 4;
+for (int k =5; k<=n; k++)
+{
+s=s+5.0/k;
+Thread.Sleep(2000);
+}
+CWL("s={0:f2}",s);
+CWL("Dushternata nishka prikluchi");
+}
+Main()
+CWL("Glavnata nishka e startirana");
+Thread t = new Thread (factoriel);
+t.Start();
+if(t.IsAlive)+{t.Join();}
+Thread t = new Thread (suma);
+t1.Start();
+if(t1.IsAlive) {t1.Join();}
+в)
+
+static void factoriel()
+{
+CWL("Vuvedete n");
+int n = int.Parse(Console.ReadLine());
+int f = 1;
+for (int k = 1; k<=n; k)
+{
+f = f-k;
+Thread.Sleep(1000);
+}
+CWL(n! = n+f);
+CWL("Dushternata prikluchi");
+}
+Main()
+CWL("Glavnata nishka e startirana");
+Thread t = new Thread(factoriel);
+t.Start();
+CWL("Vuvedete n");
+int n = int.Parse(Console.ReadLine());
+double s =4;
+for(int k =5; k<=n; k++)
+{
+s=s+5.0/k;
+Thread.Sleep(2000);
+}
+CWL("s={0:f2}",s);
+CWL("Glavnata nishka prikluchi");
+}
+c)
+
+static void factoriel()
+{
+CWL("Dushternata nishka e startirana");
+CWL("Vuvedete n");
+int n = int.Parse(CRL());
+inf f =1;
+for(int  k =11; k<=n; k++)
+{
+f = f*k;
+ThreadSleep(1000);
+}
+CWL("n!="+f);
+CWL("Dushternata nishka prikluchi");
+}
+Main
+CWL("Glavnata nishka e starirana");
+Thread t = new Thread(factoriel);
+t.IsBackground = true;
+t.Start();
+CWL("Vuvedete n");
+int n = int.Parse(Console.ReadLine());
+double s =4;
+for(int k =5; k<=n; k++)
+{
+s=s+5.0/k;
+Thread.Sleep(2000);
+}
+CWL("s={0:f2}",s);
+CWL("Glavnata nishka prikluchi");

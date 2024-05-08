@@ -1,0 +1,94 @@
+1. nai star avtomobil spored godina na proizvodstvo
+2. sredem godishen danuk na abvtomobilite 
+3. koi model e s nai visok godishen danuk
+4.spisuk na avtomobili sortirani po marka na kola v azvuchen red i godina na proizvodstvo v namalqvasht
+5.spisuk na avtomobili s po visok ot sredniq godishen danuk v narasthvast red po danyk
+6.avtomobil s nai nisuk godishen danuk
+using System;
+using System.Collections.Generic;
+
+public class Car
+{
+    public string Brand { get; set; }
+    public string Model { get; set; }
+    public int YearProd { get; set; }
+    public double AnualTax { get; set; }
+
+    public Car(string brand, string model, int yearProd, double anualTax)
+    {
+        Brand = brand;
+        Model = model;
+        YearProd = yearProd;
+        AnualTax = anualTax;
+    }
+
+    public override string ToString()
+    {
+        return $"{Brand} {Model} {YearProd} {AnualTax}";
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Car c1 = new Car("Toyota", "Yaris", 2015, 167.60);
+        Car c2 = new Car("Honda", "Accord", 2016, 73.76);
+        Car c3 = new Car("Opel", "Astra H Sedan", 2018, 70.83);
+        Car c4 = new Car("Honda", "Airwave", 2017, 63.56);
+        Car c5 = new Car("Mazda", "Xedea", 2020, 56.63);
+        Car c6 = new Car("Honda", "Accord", 2018, 89.79);
+
+        List<Car> cars = new List<Car> { c1, c2, c3, c4, c5, c6 };
+
+        Console.WriteLine("Списък на колите:");
+        foreach (var car in cars)
+        {
+            Console.WriteLine(car);
+        }
+
+ 1.       int oldestYear = int.MaxValue;
+        string oldestCarBrand = "";
+        string oldestCarModel = "";
+
+        foreach (var car in cars)
+        {
+            if (car.YearProd < oldestYear)
+            {
+                oldestYear = car.YearProd;
+                oldestCarBrand = car.Brand;
+                oldestCarModel = car.Model;
+            }
+        }
+
+        Console.WriteLine($"\nНай-старата кола е: {oldestCarBrand} {oldestCarModel} с година на производство {oldestYear}.");
+    }
+} 
+2. string modelWithHighestTax = "";
+double highestTax = 0;
+
+foreach (var car in cars)
+{
+    if (car.AnualTax > highestTax)
+    {
+        highestTax = car.AnualTax;
+        modelWithHighestTax = car.Model;
+    }
+}
+
+Console.WriteLine($"Моделът с най-висок годишен данък във фирмата е: {modelWithHighestTax} с годишен данък {highestTax:F2}");
+
+3.string modelWithHighestTax = "";
+double highestTax = 0;
+
+foreach (var car in cars)
+{
+    if (car.AnualTax > highestTax)
+    {
+        highestTax = car.AnualTax;
+        modelWithHighestTax = car.Model;
+    }
+}
+
+Console.WriteLine($"Моделът с най-висок годишен данък във фирмата е: {modelWithHighestTax} с годишен данък {highestTax:F2}");
+
